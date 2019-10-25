@@ -1,6 +1,7 @@
 body {
   color: black;
   font-family: Helvetica, san-serif;
+  font-size: 15px;
 }
 
 table {
@@ -59,3 +60,8 @@ table {
       font-size:15px;
       box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2); 
   }
+
+  #Credits {
+    font-size: 12px;    
+    font-style: italic;
+    }
