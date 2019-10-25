@@ -1,0 +1,17 @@
+body {
+  color: black;
+  font-family: Helvetica, san-serif;
+}
+
+table {
+    border: 2px dotted grey;
+    border-collapse: collapse;
+    color: grey;
+    box-shadow: 5px 5px black;
+  }
+  
+  td, th {
+    border: 2px dotted grey;
+    padding: 5px;
+    padding-right: 15px;
+  }

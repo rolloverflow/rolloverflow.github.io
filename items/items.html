@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cool Loot</title>
+  <script type="text/javascript" src = "js/script.js"></script>
+  <script type="text/javascript" src="js/items.json"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body onLoad="addOption_list()";>
+        <h2>"I Search the Body" Tables</h2>
+        <p>Select table to roll on!</p>
+        <section id="inputSection">
+            <FORM id="dropDown" name="drop_list" action="yourpage.php" method="POST" >
+                
+            <SELECT  id="Table_list">
+            <Option value="" >Pick Table</option>
+            </SELECT>
+            </form>
+            <br>
+          <input type="number" id="inputNumber" min="0" placeholder="External Roll"/>
+          <button type="submit" onclick="checkInputNumber();">Look up the Loot!</button>
+          <button id = "#roll" onclick='lookupItem()'>Roll!</button>
+        </section>
+        <hr />
+
+<section id="outputSection">
+  <table>
+    <thead>
+      <tr>
+        <th> Roll </th>
+        <th> Item Type </th>
+        <th> Description </th>
+      </tr>
+    </thead>
+    <tbody id="outputTable">
+    </tbody>
+  </table>
+</section>
+
+<hr />
+
+<h2> Potion Details</h2>
+<p id="potionEffect"></p>
+<p id="potionProps"></p>
+
+</body>
+</html>

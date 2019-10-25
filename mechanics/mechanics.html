@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Might Deeds</title>
+  <script type="text/javascript" src = "js/script.js"></script>
+  <script type="text/javascript" src="js/deeds.json"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body onLoad="addOption_list()";>
+    <h2>Mighty Deeds</h2>
+    <section id="lookupSection">
+        <p>Browse available tables of Mighty Deeds by weapon</p>
+        <FORM id="dropDown" name="drop_weapons" action="yourpage.php" method="POST" >
+                    
+            <SELECT  id="Table_list">
+            <Option value="" >Pick Weapon</option>
+            </SELECT>
+            </form>
+            <button id = "lookupWeapon" onclick='lookupWeapon()'>Browse Deeds</button>
+        <br>
+    
+        <p id="deedsByWeapon"></p>
+    </section>
+    <hr />
+    <h2> Roll Attack with Mighty Deed</h2>
+
+    <FORM id="dropDown" name="drop_deeds" action="yourpage.php" method="POST" >
+                
+        <SELECT  id="Deeds_list">
+        <Option value="" >Pick Deed</option>
+        </SELECT>
+        </form>
+        <br>
+
+    <section id="inputSection">
+        <input type="number" id="inputWeaponDMG" min="1" placeholder="Weapon DMG Die"/> 
+        <input type="number" id="inputWeaponDMGMod" placeholder="Damage Modifiers"/> 
+        <br>
+        <input type="number" id="inputDeedDie" min="1" placeholder="Deed Die"/>
+        <input type="number" id="inputDeedDieMod" placeholder="Deed Die Modifiers"/> 
+    
+        <button id = "rollDeed" onclick='lookupDeed()'>Roll!</button>
+    </section>
+    <hr />
+    <section id="outputSection">
+        <p id="description"></p>
+        <table>
+            <thead>
+              <tr>
+                <th> Weapon DMG </th>
+                <th> Deed Roll </th>
+                <th> Deed Result </th>
+              </tr>
+            </thead>
+            <tbody id="outputTable">
+            </tbody>
+          </table>
+        </section>
+    
+</body>
+</html>
