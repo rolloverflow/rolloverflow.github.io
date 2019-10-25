@@ -1,0 +1,24 @@
+body {
+  color: black;
+  font-family: Helvetica, san-serif;
+  font-size: 15px;
+}
+
+#LandingImage {
+    width: 400px
+}
+
+#Credits {
+font-size: 12px;    
+font-style: italic;
+}
+
+@media only screen and (max-width: 600px) {
+    #LandingImage {
+        width:100%
+    }
+
+    body {
+      background-color: rgb(233, 237, 243);
+    }
+  }
