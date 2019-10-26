@@ -25,15 +25,26 @@
     <hr />
     <h2> Roll Attack with Mighty Deed</h2>
 
+    <FORM id="dropDown" name="drop_modes" action="yourpage.php" method="POST" >
+      <SELECT  id="Modes_list">
+        <Option value="" >Pick Mode</option>
+        </SELECT>
+    </FORM>
     <FORM id="dropDown" name="drop_deeds" action="yourpage.php" method="POST" >
                 
-        <SELECT  id="Deeds_list">
+      <SELECT  id="Deeds_list">
         <Option value="" >Pick Deed</option>
         </SELECT>
-        </form>
+    </FORM>
         <br>
 
     <section id="inputSection">
+        <FORM id="dropDown" name="drop_adv" action="yourpage.php" method="POST" >
+                
+            <SELECT  id="Advan_list">
+              <Option value="" >(Dis)Advantage?</option>
+              </SELECT>
+          </FORM>
         <input type="number" id="inputWeaponDMG" min="1" placeholder="Weapon DMG Die"/> 
         <input type="number" id="inputWeaponDMGMod" placeholder="Damage Modifiers"/> 
         <br>
