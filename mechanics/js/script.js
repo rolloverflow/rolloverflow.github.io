@@ -7,8 +7,7 @@ xmlhttp.onreadystatechange = function () {
 xmlhttp.open("GET", "js/deeds.json", true);
 xmlhttp.send();
 
-//Dropdown Menu
-
+//Dropdown Menues
 
 function addOption(selectbox,text,value )
 {
@@ -54,87 +53,100 @@ var weaponDMG, deedDie
 
 function lookupDeed() {
   
-  // Identify selected mode mechanic 
-  let modePick = document.querySelector("#Modes_list option:checked").index
+  // Check if both Mode and Deed table have been selected
+  var modePick = document.querySelector("#Modes_list option:checked").index;
+  var deedSelect = document.querySelector("#Deeds_list option:checked").index
+  
+  
+  switch(true){
 
-// Roll the Dice
-
-  let deedPick = deeds.Tables[document.getElementById("Deeds_list").selectedIndex-1];
-  weaponDMG = document.getElementById("inputWeaponDMG").value;
-  deedDie = document.getElementById("inputDeedDie").value;
-  let rollDeedDie = Math.floor(Math.random() * deedDie) + 1;
-
-  switch (document.querySelector("#Advan_list option:checked").index) {
-    case (0):
-      var rollDMG = Math.floor(Math.random() * weaponDMG) + 1;
-      var resultAppen;
-      break;
-
-    case (1): // Roll with Advantage
-    var rollDMG = Math.max(Math.floor(Math.random() * weaponDMG) + 1, Math.floor(Math.random() * weaponDMG) + 1);
-    var resultAppen = " (ADV)";
+    // Terminate function if choices in dropdown menues have not been made
+    case(modePick == 0 || deedSelect == 0):
+    alert("Select a Mode and a Deeds table above.")
     break;
+
+    default:
     
-    case (2): // Roll with Disadvantage
-    var rollDMG = Math.min(Math.floor(Math.random() * weaponDMG) + 1, Math.floor(Math.random() * weaponDMG) + 1);
-    var resultAppen = " (DIS)";
-    break;
-  }
-
-  // Check for Mighty Fumbles or Crits 
-  if (rollDMG == 1 && rollDeedDie == 1){
-    result = "Mighty Fumble: " + deedPick["rolls"]["Mighty Fumble"]
-      alert("Tough Luck - Mighty Fumble!");
-  } else if (rollDMG == weaponDMG && rollDeedDie == deedDie) {
-    result = "Mighty Critical: " + deedPick["rolls"]["Mighty Critical"];
+    // Initiate function  
+    // Roll the Dice
+    
+    let deedPick = deeds.Tables[deedSelect-1];
+    weaponDMG = document.getElementById("inputWeaponDMG").value;
+    deedDie = document.getElementById("inputDeedDie").value;
+    let rollDeedDie = Math.floor(Math.random() * deedDie) + 1;
+    
+    switch (document.querySelector("#Advan_list option:checked").index) {
+      case (0):
+        var rollDMG = Math.floor(Math.random() * weaponDMG) + 1;
+        var resultAppen = "";
+        break;
+    
+      case (1): // Roll with Advantage
+      var rollDMG = Math.max(Math.floor(Math.random() * weaponDMG) + 1, Math.floor(Math.random() * weaponDMG) + 1);
+      var resultAppen = " (ADV)";
+      break;
+      
+      case (2): // Roll with Disadvantage
+      var rollDMG = Math.min(Math.floor(Math.random() * weaponDMG) + 1, Math.floor(Math.random() * weaponDMG) + 1);
+      var resultAppen = " (DIS)";
+      break;
+    }
+    
+    // Check for Mighty Fumbles or Crits 
+    if (rollDMG == 1 && rollDeedDie == 1){
+      result = "Mighty Fumble: " + deedPick["rolls"]["Mighty Fumble"]
+        alert("Tough Luck - Mighty Fumble!");
+    } else if (rollDMG == weaponDMG && rollDeedDie == deedDie) {
+      result = "Mighty Critical: " + deedPick["rolls"]["Mighty Critical"];
+      rollDMG = rollDMG + Number(document.getElementById("inputWeaponDMGMod").value);
+        alert("Nice one - Mighty Critical!");
+    } else {
+    
+    // If none, roll on Deed table with modifiers and given selected mode
+    
     rollDMG = rollDMG + Number(document.getElementById("inputWeaponDMGMod").value);
-      alert("Nice one - Mighty Critical!");
-  } else {
-
-  // If none, roll on Deed table with modifiers and given selected mode
-
-  rollDMG = rollDMG + Number(document.getElementById("inputWeaponDMGMod").value);
-  rollDeedDie = rollDeedDie + Number(document.getElementById("inputDeedDieMod").value);
-
-  switch (true){
-
-    // Define failure on "Fifty-Fifty" mode
-    case (modePick == 2 && rollDMG < Math.floor(weaponDMG * 0.5)):
-      result = "Deed Unsuccessful - Attack deals Weapon DMG roll only.";
-      alert("Deed Unsuccessful!");
-      break;
+    rollDeedDie = rollDeedDie + Number(document.getElementById("inputDeedDieMod").value);
     
-   // Define failure on "I take my chances" mode   
-     case (modePick == 3 && rollDMG < Math.floor(weaponDMG * 0.85)):
+    switch (true){
+    
+      // Define failure on "Fifty-Fifty" mode
+      case (modePick == 2 && rollDMG < Math.floor(weaponDMG * 0.5)):
         result = "Deed Unsuccessful - Attack deals Weapon DMG roll only.";
         alert("Deed Unsuccessful!");
         break;
-    
-    default:
-      switch(true){
-      case (3<=rollDeedDie && rollDeedDie <7):
-        result = deedPick["rolls"][String(rollDeedDie)];
-        break;
-        
-        case (7<=rollDeedDie):
-          result = deedPick["rolls"]["7"];
+      
+     // Define failure on "I take my chances" mode   
+       case (modePick == 3 && rollDMG < Math.floor(weaponDMG * 0.85)):
+          result = "Deed Unsuccessful - Attack deals Weapon DMG roll only.";
+          alert("Deed Unsuccessful!");
+          break;
+      
+      default:
+        switch(true){
+        case (3<=rollDeedDie && rollDeedDie <7):
+          result = deedPick["rolls"][String(rollDeedDie)];
           break;
           
-          default:
-            result = "Deed Unsuccessful - Attack deals Weapon DMG roll only.";
-            alert("Deed Unsuccessful!");
+          case (7<=rollDeedDie):
+            result = deedPick["rolls"]["7"];
+            break;
+            
+            default:
+              result = "Deed Unsuccessful - Attack deals Weapon DMG roll only.";
+              alert("Deed Unsuccessful!");
+            }
           }
         }
-      }
-
-
-
-// Output results
-  document.getElementById("description").innerHTML = deedPick["description"]
-
-  addTableRow(result, rollDMG + resultAppen, rollDeedDie)
+    
+    
+    
+    // Output results
+    document.getElementById("description").innerHTML = deedPick["description"]
+    
+    addTableRow(result, rollDMG + resultAppen, rollDeedDie)
+    }
 }
-
+    
     
 //Incremental Output Table
 
@@ -160,6 +172,13 @@ function addTableRow(obj, val1, val2) {
 
 function lookupWeapon() {
 document.getElementById("deedsByWeapon").innerHTML = "Suggestions: " + deeds.byWeapon[document.getElementById("Table_list").selectedIndex-1]["deeds"];
+}
+
+// Reset Button
+
+function reset() {
+  document.getElementById("outputTable").innerHTML = "";
+  document.getElementById("description").innerHTML = "";
 }
 
 
