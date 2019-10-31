@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   <title>Might Deeds</title>
+  <link rel="stylesheet" href="css/styles.css" />
   <script type="text/javascript" src = "js/script.js"></script>
   <script type="text/javascript" src="js/deeds.json"></script>
-  <link rel="stylesheet" href="css/styles.css" />
+  
+  <!--Import Google Icon Font-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 </head>
 <body onLoad="addOption_list()";>
-    <h2>Mighty Deeds</h2>
-    <section id="lookupSection">
-        <p>Browse available tables of Mighty Deeds by weapon</p>
-        <FORM id="dropDown" name="drop_weapons" action="yourpage.php" method="POST" >
+  <h2>Mighty Deeds</h2>
+  <section id="lookupSection">
+    <p>Browse available tables of Mighty Deeds by weapon</p>
+    <FORM id="dropDown" name="drop_weapons" action="yourpage.php" method="POST" >
                     
             <SELECT  id="Table_list">
             <Option value="" >Pick Weapon</option>
@@ -37,42 +40,71 @@
         </SELECT>
     </FORM>
         <br>
+  <button class="accordion"><i class="material-icons">search</i>Look Up</button>
+  <div class="panel">
+    <p>In Development</p>
+    <input type="number" id="inputDeedRoll" min="1" placeholder="Deed Roll"/> 
+    <br>
+  </div> 
 
+  <button class="accordion"><i class="material-icons">casino</i>Roll</button>
+  <div class="panel">
     <section id="inputSection">
-        <FORM id="dropDown" name="drop_adv" action="yourpage.php" method="POST" >
+      <br>
+      <FORM id="dropDown" name="drop_adv" action="yourpage.php" method="POST" >
                 
-            <SELECT  id="Advan_list">
-              <Option value="" >(Dis)Advantage?</option>
-              </SELECT>
-          </FORM>
-        <input type="number" id="inputWeaponDMG" min="1" placeholder="Weapon DMG Die"/> 
-        <input type="number" id="inputWeaponDMGMod" placeholder="Damage Modifiers"/> 
-        <br>
-        <input type="number" id="inputDeedDie" min="1" placeholder="Deed Die"/>
-        <input type="number" id="inputDeedDieMod" placeholder="Deed Die Modifiers"/> 
-    
-        <button id = "rollDeed" onclick='lookupDeed()'>Roll!</button>
-        <button id = "resetButton" onclick='reset()'>Clear</button>
+          <SELECT  id="Advan_list">
+            <Option value="" >(Dis)Advantage?</option>
+            </SELECT>
+        </FORM>
+      <input type="number" id="inputWeaponDMG" min="1" placeholder="Weapon DMG Die"/> 
+      <input type="number" id="inputWeaponDMGMod" placeholder="Damage Modifiers"/> 
+      <br>
+      <input type="number" id="inputDeedDie" min="1" placeholder="Deed Die"/>
+      <input type="number" id="inputDeedDieMod" placeholder="Deed Die Modifiers"/> 
+  
+      <button id = "rollDeed" onclick='lookupDeed()'>Roll!</button>
+      <button id = "resetButton" onclick='reset()'>Clear</button>
+      <br>
     </section>
-    <hr />
-    <section id="outputSection">
-        <p id="description"></p>
-        <table>
-            <thead>
-              <tr>
-                <th> Weapon DMG </th>
-                <th> Deed Roll </th>
-                <th> Deed Result </th>
-              </tr>
-            </thead>
-            <tbody id="outputTable">
-            </tbody>
-          </table>
-        </section>
+  </div>
+
+  <section id="outputSection">
+      <p id="description"></p>
+      <table>
+          <thead>
+            <tr>
+              <th> Weapon DMG </th>
+              <th> Deed Roll </th>
+              <th> Deed Result </th>
+            </tr>
+          </thead>
+          <tbody id="outputTable">
+          </tbody>
+        </table>
         <br>
-        <hr />
-        <section id="Credits">
-          <p>Credits: <a href="https://www.drivethrurpg.com/product/147952/Steel-and-Fury-DCC">Marzio Muscedere</a> </p>
-        </section>
-</body>
+  </section>
+  <hr />
+  <section id="Credits">
+    <p>Credits: <a href="https://www.drivethrurpg.com/product/147952/Steel-and-Fury-DCC">Marzio Muscedere</a> </p>
+  </section>
+
+  <!--Initiate DOM for Collapsible Sections-->
+  <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+      
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          } 
+        });
+      }
+      </script>
+  </body>
 </html>

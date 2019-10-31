@@ -1,22 +1,24 @@
 body {
   color: black;
   font-family: Helvetica, san-serif;
-  font-size: 15px;
+  font-size: 15px auto;
 }
 
+/* Formatting of dynamic table */
 table {
     border: 2px dotted grey;
     border-collapse: collapse;
     color: grey;
     box-shadow: 5px 5px black;
-  }
+}
   
-  td, th {
-    border: 2px dotted grey;
-    padding: 5px;
-    padding-right: 15px;
-  }
+td, th {
+  border: 2px dotted grey;
+  padding: 5px;
+  padding-right: 15px;
+}
 
+  /* Formatting of buttons and input fields */
   #lookupWeapon {
     background-color: rgb(82, 186, 179);
     border-radius: 10px;
@@ -27,7 +29,7 @@ table {
     width: 100px;
     cursor: pointer;
     box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2); 
-  }
+}
 
   #rollDeed, #resetButton {
     background-color: rgb(82, 186, 179);
@@ -41,10 +43,10 @@ table {
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2); 
   }
 
-  #inputWeaponDMG, #inputWeaponDMGMod, #inputDeedDie, #inputDeedDieMod {
+  #inputWeaponDMG, #inputWeaponDMGMod, #inputDeedDie, #inputDeedDieMod, #inputDeedRoll {
     padding: 5px;
     border: 1px solid gray;
-    margin: 5px auto;
+    margin: 7px auto;
     width: 150px;
     border-radius: 10px;
     background-color: #f8f8f8; 
@@ -65,3 +67,47 @@ table {
     font-size: 12px;    
     font-style: italic;
     }
+
+
+/* Style collapsible/accordion sections */
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+  font-size: 20px;
+
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: slategray;
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: 5px;
+  transition: max-height 0.2s ease-out;
+}

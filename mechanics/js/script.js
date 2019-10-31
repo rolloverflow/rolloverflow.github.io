@@ -7,6 +7,7 @@ xmlhttp.onreadystatechange = function () {
 xmlhttp.open("GET", "js/deeds.json", true);
 xmlhttp.send();
 
+
 //Dropdown Menues
 
 function addOption(selectbox,text,value )
@@ -180,5 +181,3 @@ function reset() {
   document.getElementById("outputTable").innerHTML = "";
   document.getElementById("description").innerHTML = "";
 }
-
-
