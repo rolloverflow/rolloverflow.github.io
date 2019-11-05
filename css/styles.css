@@ -1,11 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Cabin+Sketch|Raleway|Berkshire+Swash|Galindo|Londrina+Shadow|Mystery+Quest|Special+Elite&display=swap');
+
+/* Navbar links */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  font-family: 'Berkshire Swash', cursive;
+  /* font-family: 'Mystery Quest', cursive;
+  font-family: 'Galindo', cursive;*/
+  font-size: 36px;
+}
+
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #451e3e;
+  overflow: auto;
+  border: 2px solid #051e3e;
+  box-shadow: 5px 5px 2px grey;
+}
+
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #051e3e;
+}
+
+/* Home navbar link */
+.home {
+  background-color: #851e3e;
+  border-right: 2px solid #051e3e;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+
+  #LandingImage {
+    width:100%
+  }
+  
+  body {
+    background-color: rgb(233, 237, 243);
+  }
+}
+
+
 body {
   color: black;
-  font-family: Helvetica, san-serif;
+  /*  font-family: 'Raleway', sans-serif; */
+  font-family: 'Open Sans', regular;
   font-size: 15px;
+  background-color: #ffffff;
+}
+
+h1 {
+  /* font-family: 'Londrina Shadow', cursive;
+  font-family: 'Berkshire Swash', cursive;*/
+  
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 45px;    
+}
+
+
+h2 {
+  font-family: 'Special Elite', cursive;
+  font-size: 20px;
 }
 
 #LandingImage {
-    width: 400px
+    width: 400px;
 }
 
 #Credits {
@@ -13,12 +82,4 @@ font-size: 12px;
 font-style: italic;
 }
 
-@media only screen and (max-width: 600px) {
-    #LandingImage {
-        width:100%
-    }
 
-    body {
-      background-color: rgb(233, 237, 243);
-    }
-  }

@@ -6,9 +6,19 @@
   <script type="text/javascript" src = "js/script.js"></script>
   <script type="text/javascript" src="js/items.json"></script>
   <link rel="stylesheet" href="css/styles.css" />
+  <!-- Load an icon library -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 </head>
 <body onLoad="addOption_list()";>
-        <h2>"I Search the Body" Tables</h2>
+    <h1>Roll Overflow.</h1>
+
+    <div class="navbar">
+      <a class="home" href="../index.html"><i class="fab fa-fort-awesome-alt"></i> Home</a>
+      <a href="items.html"><i class="fas fa-scroll"></i> Items</a>
+      <a href="../mechanics/mechanics.html"><i class="fas fa-dice-d20"></i> Deeds</a>
+    </div>
+    <br>
+    <h2>"I Search the Body" Tables</h2>
         <p>Select table to roll on!</p>
         <section id="inputSection">
             <FORM id="dropDown" name="drop_list" action="yourpage.php" method="POST" >
@@ -19,31 +29,29 @@
             </form>
             <br>
           <input type="number" id="inputNumber" min="0" placeholder="External Roll"/>
-          <button id = "lookupItem" type="submit" onclick="checkInputNumber();">Look up the Loot!</button>
-          <button id = "rollItem" onclick='lookupItem()'>Roll!</button>
+          <button id = "lookupItem" type="submit" onclick="checkInputNumber();">Look up the Loot</button>
+          <button id = "rollItem" onclick='lookupItem()'>Roll</button>
           <button id = "resetButton" onclick='reset()'>Clear</button>
         </section>
-        <hr />
-
-<section id="outputSection">
-  <table>
-    <thead>
-      <tr>
-        <th> Roll </th>
-        <th> Item Type </th>
-        <th> Description </th>
-      </tr>
-    </thead>
-    <tbody id="outputTable">
-    </tbody>
-  </table>
-</section>
-
-<hr />
-
-<h2> Potion Details</h2>
-<p id="potionEffect"></p>
-<p id="potionProps"></p>
-
-</body>
+    <hr />
+    <section id="outputSection">
+        <table>
+          <thead>
+            <tr>
+              <th> Roll </th>
+              <th> Item Type </th>
+              <th> Description </th>
+            </tr>
+          </thead>
+          <tbody id="outputTable">
+          </tbody>
+        </table>
+      </section>
+      
+      <hr />
+      
+      <h2> Potion Details</h2>
+      <p id="potionEffect"></p>
+      <p id="potionProps"></p>
+    </body>
 </html>

@@ -6,11 +6,21 @@
   <link rel="stylesheet" href="css/styles.css" />
   <script type="text/javascript" src = "js/script.js"></script>
   <script type="text/javascript" src="js/deeds.json"></script>
+  <!-- Load an icon library -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   
-  <!--Import Google Icon Font-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+  <!--OLD Import Google Icon Font <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >-->
 </head>
 <body onLoad="addOption_list(refresh = false)";>
+    <h1>Roll Overflow.</h1>
+
+    <div class="navbar">
+      <a class="home" href="../index.html"><i class="fab fa-fort-awesome-alt"></i> Home</a>
+      <a href="../items/items.html"><i class="fas fa-scroll"></i> Items</a>
+      <a href="mechanics.html"><i class="fas fa-dice-d20"></i> Deeds</a>
+    </div>
+    <br>
+
   <h2>Mighty Deeds</h2>
   <section id="lookupSection">
     <p>Browse available tables of Mighty Deeds by weapon</p>
@@ -38,14 +48,14 @@
         </SELECT>
     </FORM>
         <br>
-  <button class="accordion"><i class="material-icons">search</i>Look Up</button>
+  <button class="accordion"><i class="fas fa-search"></i> Look Up</button>
   <div class="panel">
     <p>In Development</p>
     <input type="number" id="inputDeedRoll" min="1" placeholder="Deed Roll"/> 
     <br>
   </div> 
 
-  <button class="accordion"><i class="material-icons">casino</i>Roll</button>
+  <button class="accordion"><i class="fas fa-dice-five"></i> Roll</button>
   <div class="panel">
     <section id="inputSection">
       <br>
@@ -61,7 +71,7 @@
       <input type="number" id="inputDeedDie" min="1" placeholder="Deed Die"/>
       <input type="number" id="inputDeedDieMod" placeholder="Deed Die Modifiers"/> 
   
-      <button id = "rollDeed" onclick='lookupDeed()'>Roll!</button>
+      <button id = "rollDeed" onclick='lookupDeed()'>Roll</button>
       <button id = "resetButton" onclick='reset()'>Clear</button>
       <br>
     </section>
