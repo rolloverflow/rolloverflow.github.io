@@ -10,7 +10,7 @@ xmlhttp.send();
 
 //Dropdown Menues
 
-function addOption(selectbox,text,value )
+function addOption(selectbox,text,value)
 {
   var optn = document.createElement("OPTION");
   optn.text = text;
@@ -18,34 +18,56 @@ function addOption(selectbox,text,value )
   selectbox.options.add(optn);
 }
 
-function addOption_list(){
 
-    // Define array containing choices for dropdown menus 1, 2, 3 and 4
-    var list1 = deeds.byWeapon
-    var list2 = deeds.Tables
-    var list3 = new Array("1: One-Man Army", "2: 'It's Fifty-Fifty'", "3: 'I'll Take My Chances...'");
-    var list4 = new Array("Apply Advantage", "Apply Disadvantage")
+// Onload Dropdown Menus Populator and Dynamic Updater
 
-    for (var i=0; i < list1.length;++i){
-        entry = list1[i].weapon
-       addOption(document.drop_weapons.Table_list, entry, entry);
-    }
+function addOption_list(refresh){
+  switch(refresh) {
+    case (true):
+      var weaponIndex = document.getElementById("Table_list").selectedIndex;
+
+      // Clear Deeds dropdown menus
+      document.querySelector('#Deeds_list').querySelectorAll('OPTION:not([value=""])').forEach(elm => elm.parentNode.removeChild(elm));
+
+      // Populate Deeds dropdown based on selected weapon
+      var str = deeds.byWeapon[weaponIndex-1]["deeds"];
+      var list2 = new Array();
+      var list2 = str.split(", ");
+      for (var i=0; i < list2.length;++i){
+        entry = list2[i];
+        addOption(document.drop_deeds.Deeds_list, entry, entry);
+      }
+      break;
+      
+    default:
+      
+      // Define array containing choices for dropdown menus 1, 2, 3 and 4
+      var list1 = deeds.byWeapon
+      var list2 = deeds.Tables;
+
+      var list3 = new Array("1: One-Man Army", "2: 'It's Fifty-Fifty'", "3: 'I'll Take My Chances...'");
+      var list4 = new Array("Apply Advantage", "Apply Disadvantage");
     
-    for (var i=0; i < list2.length;++i){
+      for (var i=0; i < list1.length;++i){
+          entry = list1[i].weapon
+         addOption(document.drop_weapons.Table_list, entry, entry);
+      }
+      
+      for (var i=0; i < list2.length;++i){
         entry = list2[i].name
        addOption(document.drop_deeds.Deeds_list, entry, entry);
-    }
+      }
 
-    for (var i=0; i < list3.length;++i){
-      entry = list3[i]          // Note the difference - list3 is an array, not an object
-     addOption(document.drop_modes.Modes_list, entry, entry);
-    }
-
-     for (var i=0; i < list4.length;++i){
-      entry = list4[i]          // Note the difference - list3 is an array, not an object
-     addOption(document.drop_adv.Advan_list, entry, entry);
-    }
-
+      for (var i=0; i < list3.length;++i){
+        entry = list3[i]          // Note the difference - list3 is an array, not an object
+       addOption(document.drop_modes.Modes_list, entry, entry);
+      }
+    
+       for (var i=0; i < list4.length;++i){
+        entry = list4[i]          // Note the difference - list3 is an array, not an object
+       addOption(document.drop_adv.Advan_list, entry, entry);
+      }
+  }
 }
 
 // Look up Deeds Rolls
@@ -168,12 +190,6 @@ function addTableRow(obj, val1, val2) {
   cell3.innerHTML = obj;
 }
 
-
-// Look up Suggested Deeds by Weapon
-
-function lookupWeapon() {
-document.getElementById("deedsByWeapon").innerHTML = "Suggestions: " + deeds.byWeapon[document.getElementById("Table_list").selectedIndex-1]["deeds"];
-}
 
 // Reset Button
 

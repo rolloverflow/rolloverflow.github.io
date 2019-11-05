@@ -10,7 +10,7 @@
   <!--Import Google Icon Font-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 </head>
-<body onLoad="addOption_list()";>
+<body onLoad="addOption_list(refresh = false)";>
   <h2>Mighty Deeds</h2>
   <section id="lookupSection">
     <p>Browse available tables of Mighty Deeds by weapon</p>
@@ -20,10 +20,8 @@
             <Option value="" >Pick Weapon</option>
             </SELECT>
             </form>
-            <button id = "lookupWeapon" onclick='lookupWeapon()'>Browse Deeds</button>
+            <button id = "lookupWeapon" onclick='addOption_list(refresh = true)'>Browse Deeds</button>
         <br>
-    
-        <p id="deedsByWeapon"></p>
     </section>
     <hr />
     <h2> Roll Attack with Mighty Deed</h2>
