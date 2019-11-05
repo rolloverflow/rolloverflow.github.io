@@ -78,7 +78,7 @@ function lookupDeed() {
   
   // Check if both Mode and Deed table have been selected
   var modePick = document.querySelector("#Modes_list option:checked").index;
-  var deedSelect = document.querySelector("#Deeds_list option:checked").index
+  var deedSelect = document.querySelector("#Deeds_list option:checked").value;
   
   
   switch(true){
@@ -93,7 +93,7 @@ function lookupDeed() {
     // Initiate function  
     // Roll the Dice
     
-    let deedPick = deeds.Tables[deedSelect-1];
+    let deedPick = deeds.Tables.find(el => el.name === deedSelect);
     weaponDMG = document.getElementById("inputWeaponDMG").value;
     deedDie = document.getElementById("inputDeedDie").value;
     let rollDeedDie = Math.floor(Math.random() * deedDie) + 1;
