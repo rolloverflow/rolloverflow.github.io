@@ -1,0 +1,105 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Cabin+Sketch|Raleway|Berkshire+Swash|Galindo|Londrina+Shadow|Mystery+Quest|Special+Elite&display=swap');
+
+/* Navbar links */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  font-family: 'Berkshire Swash', cursive;
+  /* font-family: 'Mystery Quest', cursive;
+  font-family: 'Galindo', cursive;*/
+  font-size: 36px;
+}
+
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #451e3e;
+  overflow: auto;
+  border: 2px solid #051e3e;
+  box-shadow: 5px 5px 2px grey;
+}
+
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #051e3e;
+}
+
+/* Home navbar link */
+.home {
+  background-color: #851e3e;
+  border-right: 2px solid #051e3e;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+
+  body {
+    background-color: rgb(233, 237, 243);
+  }
+}
+
+body {
+  color: black;
+  /*  font-family: 'Raleway', sans-serif; */
+  font-family: 'Open Sans', regular;
+  font-size: 15px;
+  background-color: #ffffff;
+}
+
+h1 {
+  /* font-family: 'Londrina Shadow', cursive;
+  font-family: 'Berkshire Swash', cursive;*/
+  
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 45px;    
+}
+
+
+h2 {
+  font-family: 'Special Elite', cursive;
+  font-size: 20px;
+}
+
+/* Define Dynamic Table Properties */
+table {
+    border: 2px dotted grey;
+    border-collapse: collapse;
+    color: grey;
+    box-shadow: 5px 5px black;
+  }
+  
+  td, th {
+    border: 2px dotted grey;
+    padding: 5px;
+    padding-right: 15px;
+  }
+
+  #inputNumber, #inputWeaponDMGMod {
+    padding: 5px;
+    border: 1px solid gray;
+    margin: 5px auto;
+    width: 150px;
+    border-radius: 10px;
+    background-color: #f8f8f8; 
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2); 
+  }
+
+  #rollItem, #lookupItem, #resetButton {
+    background-color: #851e3e;
+    border-radius: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    width: auto;
+    cursor: pointer;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2); 
+  }
