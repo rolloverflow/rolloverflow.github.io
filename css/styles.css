@@ -3,14 +3,18 @@
 
 /* Logo Bar */
 
+.header > * {
+  vertical-align: middle;
+  line-height: normal;
+}
+
 .header img {
-  float: left;
+  display:inline-block;
   height: 120px;
 }
 
 .header h1 {
-  position: absolute;
-  margin: 20px 450px;
+  display: inline;
   font-size: 70px;
 }
 
