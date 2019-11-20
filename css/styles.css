@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Cabin+Sketch|Raleway|Berkshire+Swash|Galindo|Londrina+Shadow|Mystery+Quest|Special+Elite&display=swap');
 
+
+/* Logo Bar */
+
+.header img {
+  float: left;
+  height: 120px;
+}
+
+.header h1 {
+  position: absolute;
+  margin: 20px 450px;
+  font-size: 70px;
+}
+
 /* Navbar links */
 .navbar a {
   float: left;
