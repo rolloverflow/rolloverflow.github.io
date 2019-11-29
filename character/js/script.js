@@ -17,7 +17,7 @@ function addOption(selectbox,text,value ){
 }
 
 function addOption_list(){
-  var list = new Array("Mutations");
+  var list = new Array("Abilities", "Mutations");
   for (var i=0; i < list.length;++i){
     addOption(document.drop_list.Table_list, list[i], list[i]);
   }
@@ -39,13 +39,20 @@ function lookupItem() {
     
     switch (pick) {
 
+      case "Abilities":
+          roll = Math.floor(Math.random() * char.Abilities.length)
+          result = char.Abilities[roll];
+          document.getElementById("name").innerHTML = "Name: " + result.name;
+          document.getElementById("effect").innerHTML = "Description: " + result.effect;
+          break;
+    
       case "Mutations":
-      roll = Math.floor(Math.random() * char.Mutations.length)
-      result = char.Mutations[roll];
-      document.getElementById("name").innerHTML = "Name: " + result.name;
-      document.getElementById("effect").innerHTML = "Effect: " + result.effect;
-      break;
-  
+          roll = Math.floor(Math.random() * char.Mutations.length)
+          result = char.Mutations[roll];
+          document.getElementById("name").innerHTML = "Name: " + result.name;
+          document.getElementById("effect").innerHTML = "Effect: " + result.effect;
+          break;
+
       default :
       alert("Table not recognised. Check reference variable.");
     }
