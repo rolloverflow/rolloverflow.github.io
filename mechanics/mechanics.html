@@ -36,12 +36,20 @@
     </section>
     <hr />
     <h2> Roll Attack with Mighty Deed</h2>
-
-    <FORM id="dropDown" name="drop_modes" action="yourpage.php" method="POST" >
-      <SELECT  id="Modes_list">
-        <Option value="" >Pick Mode</option>
-        </SELECT>
-    </FORM>
+    <div class="form-inline">
+        <FORM id="dropDown" name="drop_modes" action="yourpage.php" method="POST" >
+            <SELECT  id="Modes_list">
+              <Option value="" >Pick Mode</option>
+              </SELECT>
+          </FORM>
+          <div class="tooltip"> <i class="fas fa-question-circle"></i>
+            <span class="tooltiptext">
+              "One-Man Army" - Success determined solely by the Deed Die; <br />
+              "It's Fifty-Fifty" - Roll above 50th percentale of your Weapon Damage Die to trigger a Mighty Deed; <br />
+              "I'll Take my Chances..." - Roll above 85th percentale of your Weapon Damage Die to trigger a Mighty Deed.
+            </span>
+          </div>
+    </div>
     <FORM id="dropDown" name="drop_deeds" action="yourpage.php" method="POST" >
                 
       <SELECT  id="Deeds_list">
