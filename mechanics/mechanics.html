@@ -60,10 +60,27 @@
   <button class="accordion"><i class="fas fa-search"></i> Look Up</button>
   <div class="panel">
     <p>In Development</p>
-    <input type="number" id="inputDeedRoll" min="1" placeholder="Deed Roll"/> 
-    <br>
-  </div> 
+  
+      <FORM id="dropDown" name="drop_deedDie" action="yourpage.php" method="POST" >
 
+        <SELECT  id="Deed_Die_list">
+          <Option value="" >Pick Deed Die</option>
+          </SELECT>
+      </FORM>
+
+        <input type="number" id="inputDeedRoll" min="1" placeholder="Deed Roll"/> 
+
+        <FORM id="dropDown" name="drop_weapon_die" action="yourpage.php" method="POST" >
+
+          <SELECT  id="DMG_list">
+            <Option value="" >Pick Damage Die</option>
+            </SELECT>
+        </FORM>
+
+        <input type="number" id="inputWeaponRoll" min="1" placeholder="Weapon Roll"/> 
+        <br>
+    
+  </div>
   <button class="accordion"><i class="fas fa-dice-five"></i> Roll</button>
   <div class="panel">
     <section id="inputSection">

@@ -41,32 +41,44 @@ function addOption_list(refresh){
       
     default:
       
-      // Define array containing choices for dropdown menus 1, 2, 3 and 4
+      // Define array containing choices for dropdown menus 1, 2, 3, 4 and 5
       var list1 = deeds.byWeapon
       var list2 = deeds.Tables;
 
       var list3 = new Array("1: One-Man Army", "2: 'It's Fifty-Fifty'", "3: 'I'll Take My Chances...'");
       var list4 = new Array("Apply Advantage", "Apply Disadvantage");
+      var list5 = new Array("d4", "d6","d8","d10","d12");
+      var list6 = new Array("d3","d4","d5","d6","d7","d10");
     
       for (var i=0; i < list1.length;++i){
           entry = list1[i].weapon
          addOption(document.drop_weapons.Table_list, entry, entry);
-      }
+        }
       
       for (var i=0; i < list2.length;++i){
-        entry = list2[i].name
-       addOption(document.drop_deeds.Deeds_list, entry, entry);
-      }
+          entry = list2[i].name
+          addOption(document.drop_deeds.Deeds_list, entry, entry);
+        }
 
       for (var i=0; i < list3.length;++i){
-        entry = list3[i]          // Note the difference - list3 is an array, not an object
-       addOption(document.drop_modes.Modes_list, entry, entry);
-      }
+          entry = list3[i]          // Note the difference - list3 is an array, not an object
+          addOption(document.drop_modes.Modes_list, entry, entry);
+        }
     
        for (var i=0; i < list4.length;++i){
-        entry = list4[i]          // Note the difference - list3 is an array, not an object
-       addOption(document.drop_adv.Advan_list, entry, entry);
-      }
+          entry = list4[i]          // Note the difference - list4 is an array, not an object
+          addOption(document.drop_adv.Advan_list, entry, entry);
+        }
+
+        for (var i=0; i < list5.length;++i){
+          entry = list5[i]          // Note the difference - list5 is an array, not an object
+          addOption(document.drop_weapon_die.DMG_list, entry, entry);      
+        }
+
+       for (var i=0; i < list6.length;++i){
+          entry = list6[i]          // Note the difference - list6 is an array, not an object
+          addOption(document.drop_deedDie.Deed_Die_list, entry, entry);      
+        }
   }
 }
 

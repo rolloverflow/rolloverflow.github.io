@@ -107,7 +107,7 @@ td, th {
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2); 
   }
 
-  #inputWeaponDMG, #inputWeaponDMGMod, #inputDeedDie, #inputDeedDieMod, #inputDeedRoll {
+  #inputWeaponDMG, #inputWeaponDMGMod, #inputDeedDie, #inputDeedDieMod, #inputDeedRoll, #inputWeaponRoll {
     padding: 5px;
     border: 1px solid gray;
     margin: 7px auto;
